@@ -1,10 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
-export const MatchSummary = ({match}) => {
-    if(!match) return null;
+export const MatchSummary = ({match, requestedTeamName}) => {
+
+    const otherTeamName = match.team1 !== requestedTeamName ? match.team1 : match.team2;
+    const linkForOTherTeam = "/team/"+otherTeamName;
+    if(!match.team1) return null;
     return(
         <div className = "MatchSummary">
-            <div className ="MatchTeam"> {match.team1} Vs {match.team2} </div>
+            <div className ="MatchTeam"> Vs <Link to={linkForOTherTeam}> {otherTeamName} </Link></div>
             <div className ="TossDetails"> 
                 Toss won by {match.tossWinner} and decided to {match.tossDecision}
             </div>
