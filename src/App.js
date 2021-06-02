@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import {TeamDashboard} from './pages/TeamDashboard';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import { TeamMatchesHistory } from './pages/TeamMatchesHistroy';

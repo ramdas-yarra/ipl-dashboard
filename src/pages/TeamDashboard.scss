@@ -1,0 +1,22 @@
+.TeamDashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+
+    .Team-name-section {
+        grid-column: span 3;
+        justify-self: left;
+    }
+    .Team-name {
+        font-size: 4rem;
+    }
+
+    .Team-performance-section {
+        justify-self: center;
+    }
+    .Match-datails-section {
+        grid-column: span 4;
+    }
+}

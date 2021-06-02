@@ -1,5 +1,6 @@
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom';
+import './MatchSummary.scss';
 
 export const MatchSummary = ({match, requestedTeamName}) => {
 
@@ -8,24 +9,19 @@ export const MatchSummary = ({match, requestedTeamName}) => {
     if(!match.team1) return null;
     return(
         <div className = "MatchSummary">
-            <div className ="MatchTeam"> Vs <Link to={linkForOTherTeam}> {otherTeamName} </Link></div>
-            <div className ="TossDetails"> 
-                Toss won by {match.tossWinner} and decided to {match.tossDecision}
+            <div className="Match-Details-section">
+                <span className="Agianst"> Vs </span> 
+                <h2 className="Opponent-Team"><Link to={linkForOTherTeam}> {otherTeamName} </Link></h2> 
+                <h3 className="Match-Date"> Held on {match.date}  </h3>
+                <h3 className ="Match-Venue"> {match.venue}, {match.city} </h3>
+                <h3 className ="Match-Result"> {match.matchWinner} won the match by {match.resultMargin} {match.resultType}</h3>
             </div>
-            <div className ="MatchResult"> 
-                {match.matchWinner} won the match by {match.resultMargin} {match.resultType}
-            </div>
-            <div className ="PlayOfTheMatch"> 
-                Player of the match : {match.playerOfMatch}
-            </div>
-            <div className = "MatchDate">
-                Match held on {match.date}
-            </div>
-            <div className = "Venue">
-                Venue :: {match.venue} at {match.city} 
-            </div>
-            <div className = "Umpires">
-                On field umpires :: {match.umpire1} and {match.umpire2} 
+            <div className="Additional-Details-section">
+                <h3> First Innings </h3> <p>{match.team1}</p>
+                <h3> Second Innings </h3> <p>{match.team2}</p>
+                <p> Toss won by {match.tossWinner} and decided to {match.tossDecision} </p>
+                <h3> Player of the Match</h3> <p> {match.playerOfMatch} </p>
+                <h3> On field umpires </h3> <p> {match.umpire1}, {match.umpire2} </p>
             </div>
         </div>
     );

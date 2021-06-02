@@ -1,0 +1,19 @@
+.MatchSummary {
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .Opponent-Team, .Match-Date, .Match-Venue, .Match-Result {
+        padding-bottom: 10px;
+    }
+
+    .Additional-Details-section {
+        justify-self: right;
+        color: #008000;
+
+        & > p {
+            padding-bottom: 10px;
+        }  
+    }
+
+}
