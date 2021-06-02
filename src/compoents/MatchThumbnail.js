@@ -6,7 +6,7 @@ export const MatchThumbnail = ({match, requestedTeamName}) => {
     const linkForOTherTeam = "/team/"+otherTeamName;
     if(!match.team1) return null;
     return(
-        <div className = "MatchThumbnail" >
+        <div className = "MatchThumbnail" key={match.id} >
             <p> vs <Link to={linkForOTherTeam}>{otherTeamName}</Link>,  
             {match.matchWinner} won the match by {match.resultMargin} {match.resultType}  </p>
         </div>
