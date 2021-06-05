@@ -2,21 +2,38 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    grid-row-gap: 10px;
+    grid-row-gap: 5px;
     grid-column-gap: 10px;
 
     .Team-name-section {
         grid-column: span 3;
-        justify-self: left;
+        justify-self: start;
+        align-self: flex-end;
+        padding-bottom: 30px;
     }
     .Team-name {
         font-size: 4rem;
     }
+    .team-stats-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-column-gap: 5px;
+        grid-row-gap: 5px;
+    }
 
     .Team-performance-section {
-        justify-self: center;
+        align-self: center;
+        justify-self: flex-start;
     }
+
     .Match-datails-section {
         grid-column: span 4;
+    }
+
+    .More-matches-link {
+        justify-content: center;
+        justify-self: center;
+        align-self: center;
     }
 }

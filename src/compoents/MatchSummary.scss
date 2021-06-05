@@ -3,17 +3,23 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
 
+    margin: 10px auto;
+    padding: 10px;
+    justify-self: center;
+    justify-content: center;
+
     .Opponent-Team, .Match-Date, .Match-Venue, .Match-Result {
         padding-bottom: 10px;
     }
 
     .Additional-Details-section {
         justify-self: right;
-        color: #008000;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
 
         & > p {
             padding-bottom: 10px;
         }  
     }
-
 }

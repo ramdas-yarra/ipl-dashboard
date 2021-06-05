@@ -1,0 +1,22 @@
+.TeamMatchesHistory {
+
+    .team-history-section {
+
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+        .matches-history-section {
+            grid-column: span 4;
+        }
+    }
+
+    .year-selection-section {
+        justify-self: end;
+        padding: 40px;
+    }
+
+    .Matches-title {
+        padding: 10px;
+    }
+
+}

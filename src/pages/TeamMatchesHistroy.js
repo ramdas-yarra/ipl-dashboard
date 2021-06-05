@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import { MatchThumbnail } from '../compoents/MatchThumbnail';
+import { MatchSummary } from '../compoents/MatchSummary';
+import { YearSelector } from '../compoents/YearSelector';
+import './TeamMatchesHistory.scss';
 
 
 export const TeamMatchesHistory = () => {
@@ -17,12 +19,19 @@ export const TeamMatchesHistory = () => {
             getMatchesByTeamAndYeat();
         }, [name, year]
     );
-    if(!matchesHistoryData) 
+    if(!matchesHistoryData || matchesHistoryData.length === 0 ) 
         return (<h1> Loading matches History </h1>);
     return (
-        <div>
-            <h2>Team History</h2>
-            {matchesHistoryData.map((currentMatch) => <MatchThumbnail match ={currentMatch} requestedTeamName={teamName} /> )}
+        <div className="TeamMatchesHistory">
+            <h2 className="Matches-title">{teamName} matches {year} </h2>
+            <div className = "team-history-section">
+                <div className ="year-selection-section">
+                    <YearSelector teamName={teamName} />
+                </div>
+                <div className ="matches-history-section">
+                    {matchesHistoryData.map((currentMatch) => <MatchSummary match = {currentMatch} requestedTeamName = {teamName} /> )}
+                </div>
+            </div>
         </div>
     );
 }
