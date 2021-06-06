@@ -11,15 +11,19 @@ export const TeamMatchesHistory = () => {
     const teamName = name;
     useEffect (
         () => {
-            const getMatchesByTeamAndYeat = async() => {
+            const getMatchesByTeamAndYear = async() => {
                 const matchesApiResponse = await fetch(`http://localhost:8090/v1/team/${name}/matches?year=${year}`);
-                const matchesResponseParsed = await matchesApiResponse.json();
-                setMatchesHistory(matchesResponseParsed);
+                const matchesApiResponseStatus = await matchesApiResponse.status;
+                if(matchesApiResponseStatus !== 200) {
+                    setMatchesHistory([]); 
+                } else {
+                    setMatchesHistory(await matchesApiResponse.json()); 
+                } 
             }
-            getMatchesByTeamAndYeat();
+            getMatchesByTeamAndYear();
         }, [name, year]
     );
-    if(!matchesHistoryData || matchesHistoryData.length === 0 ) 
+    if(!matchesHistoryData ) 
         return (<h1> Loading matches History </h1>);
     return (
         <div className="TeamMatchesHistory">
@@ -29,7 +33,11 @@ export const TeamMatchesHistory = () => {
                     <YearSelector teamName={teamName} />
                 </div>
                 <div className ="matches-history-section">
-                    {matchesHistoryData.map((currentMatch) => <MatchSummary match = {currentMatch} requestedTeamName = {teamName} /> )}
+                    {
+                        matchesHistoryData.length !== 0 ?
+                            matchesHistoryData.map((currentMatch) => <MatchSummary match = {currentMatch} requestedTeamName = {teamName} /> )
+                            : <div className="No-data-section"> No matches played by the {teamName} in year {year} </div> 
+                        }
                 </div>
             </div>
         </div>

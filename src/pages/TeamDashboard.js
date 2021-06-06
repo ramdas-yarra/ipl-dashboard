@@ -23,7 +23,7 @@ export const TeamDashboard =  () => {
         }, [name]
     );
     if(!teamDashboardDetails || !teamDashboardDetails.team.name) {
-      return <h1>Team details not found</h1>
+      return <h1>Loading team dashboard</h1>
     }
   return (
     <div className="TeamDashboard">
